@@ -1,0 +1,28 @@
+@model crud.Models.UserViewModel
+
+@{
+    ViewData["title"] = "Delete";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Delete</li>
+    </ol>
+</nav>
+
+
+<label for="Name">@Html.DisplayNameFor(model => model.Name)</label>
+<p id="Name" class="ml-2">@Html.DisplayFor(model => model.Name)</p>
+
+<label for="Email">@Html.DisplayNameFor(model => model.Email)</label>
+<p id="Email" class="ml-2">@Html.DisplayFor(model => model.Email)</p>
+
+<label for="Age">@Html.DisplayNameFor(model => model.Age)</label>
+<p id="Age" class="ml-2">@Html.DisplayFor(model => model.Age)</p>
+
+<form class="form-group" asp-action="Delete">
+    <p>Are you sure?</p>
+    <button class=" btn btn-outline-danger btn-sm" type="submit">Yes</button>
+    <button class="btn btn-outline-primary btn-sm"><a asp-controller="User" asp-action="Index">No</a></button>
+</form>

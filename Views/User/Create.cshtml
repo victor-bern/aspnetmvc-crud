@@ -1,0 +1,29 @@
+@model crud.Models.UserViewModel
+@{
+    ViewData["title"] = "Create User";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Create</li>
+    </ol>
+</nav>
+
+<form asp-action="Create">
+    <div class="form-group">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <label for="Name">Name</label>
+        <input type="text" asp-for="Name" class="form-control" id="Name" aria-describedby="Name"
+            placeholder="Enter you Name">
+    </div>
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" asp-for="Email" class="form-control" id="Email" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label for="Age">Age</label>
+        <input type="number" asp-for="Age" class="form-control" id="Age" placeholder="Age">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

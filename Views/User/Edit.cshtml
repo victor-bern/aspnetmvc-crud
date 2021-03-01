@@ -1,0 +1,30 @@
+@model crud.Models.UserViewModel
+
+@{
+    ViewData["title"] = $"Edit {Model.getFirstName()}";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Edit</li>
+    </ol>
+</nav>
+
+<form asp-action="Edit">
+    <div class="form-group">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <label for="Name">Name</label>
+        <input type="text" value="@Model.Name" asp-for="Name" class="form-control" id="Name" aria-describedby="Name"
+            placeholder="Enter you Name">
+    </div>
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <input type="email" value="@Model.Email" asp-for="Email" class="form-control" id="Email" placeholder="Email">
+    </div>
+    <div class="form-group">
+        <label for="Age">Age</label>
+        <input type="number" value="@Model.Age" asp-for="Age" class="form-control" id="Age" placeholder="Age">
+    </div>
+    <button type="submit" class="btn btn-primary">Edit</button>
+</form>

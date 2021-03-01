@@ -1,0 +1,47 @@
+@model IEnumerable<crud.Models.UserViewModel>
+@{
+    ViewData["Title"] = "Home User";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item active" aria-current="page">Home</li>
+    </ol>
+</nav>
+
+
+<button type="button" class="btn btn-primary mb-2"><a class="nav-link text-white" asp-controller="User"
+        asp-action="Create">Create
+        User</a></button>
+
+<table class="table table-dark">
+    <thead>
+        <tr>
+            <th scope="col">@Html.DisplayNameFor(model => model.Id)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Name)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Email)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Age)</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var user in Model)
+        {
+
+            <tr>
+                <th scope="row">@Html.DisplayFor(modelItem => user.Id)</th>
+                <td>@Html.DisplayFor(modelItem => user.Name)</td>
+                <td>@Html.DisplayFor(modelItem => user.Email)</td>
+                <td>@Html.DisplayFor(modelItem => user.Age)</td>
+                <td>
+                    <button class="btn btn-outline-primary btn-sm"><a class="nav-link text-white" asp-action="Edit"
+                            asp-route-id="@user.Id">Edit</a></button>
+                    <button class="btn btn-outline-primary btn-sm"><a class="nav-link text-white" asp-action="Details"
+                            asp-route-id="@user.Id">Details</a></button>
+                    <button class="btn btn-outline-danger btn-sm"><a class="nav-link text-white" asp-action="Delete"
+                            asp-route-id="@user.Id">Delete</a></button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

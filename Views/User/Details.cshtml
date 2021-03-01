@@ -1,0 +1,24 @@
+@model crud.Models.UserViewModel
+
+@{
+    ViewData["title"] = $"Details of {Model.getFirstName()}";
+}
+
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-action="Index">Home</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Details</li>
+    </ol>
+</nav>
+
+
+<label for="Name">@Html.DisplayNameFor(model => model.Name)</label>
+<p id="Name" class="ml-2">@Html.DisplayFor(model => model.Name)</p>
+
+<label for="Email">@Html.DisplayNameFor(model => model.Email)</label>
+<p id="Email" class="ml-2">@Html.DisplayFor(model => model.Email)</p>
+
+<label for="Age">@Html.DisplayNameFor(model => model.Email)</label>
+<p id="Age" class="ml-2">@Html.DisplayFor(model => model.Age)</p>
+
+<button class="btn btn-outline-primary"><a asp-action="Edit" asp-route-id="@Model.Id">Edit</a></button>
