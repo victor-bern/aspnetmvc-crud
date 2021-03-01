@@ -63,6 +63,8 @@ namespace crud.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+
         public async Task<ActionResult<UserViewModel>> Edit([FromServices] DataContext context, [Bind] UserViewModel model, int id)
         {
             if (!ModelState.IsValid)
@@ -76,6 +78,8 @@ namespace crud.Controllers
 
 
         [HttpGet]
+        [ValidateAntiForgeryToken]
+
         public async Task<ActionResult<UserViewModel>> Details([FromServices] DataContext context, int? id)
         {
             if (id == null)
@@ -94,6 +98,8 @@ namespace crud.Controllers
 
 
         [HttpGet]
+        [ValidateAntiForgeryToken]
+
         public async Task<ActionResult> Delete([FromServices] DataContext context, int? id)
         {
             if (id == null)
